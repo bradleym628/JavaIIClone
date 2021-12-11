@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */ 
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+.button5 {background-color: #555555;} /* Black */
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #008CBA;
+}
+
+tr:hover {background-color: #E0E0E0;}
+button:hover {background-color: white;}
+</style>
+</head>
+<body bgcolor = #d3d3d3>
+
+<center>
+<br />
+<br />
+<form>
+		<table class="table">
+		<thead>
+	
+		 	<th><b> ID </b></th>
+		 	<th><b> MAKE </b></th>
+		 	<th><b> MODEL </b></th>
+		 	<th colspan = "2"><b> EDIT/DELETE </b></th>
+		 
+		 </thead>
+		<tr th:each="c: ${phoneList}">
+			<td th:text="${c.id}" />
+			<td th:text="${c.make}" />
+			<td th:text="${c.model}" />
+
+			<td><a th:href="@{/edit/{id}(id=${c.id})}"><button type="button" class="button">Edit</button></a></td>
+			<td align = "right"><a th:href="@{/delete/{id}(id=${c.id})}"><button type="button" class="button button3">Delete</button></a></td>
+			</tr>
+		</table>
+	</form>
+</center>
+</body>
+</html>

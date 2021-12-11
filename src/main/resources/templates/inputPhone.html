@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New Device</title>
+<style type="text/css">
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: black;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */ 
+.button4 {background-color: #99CCFF; color: black;} /* Gray */ 
+.button5 {background-color: #555555;} /* Black */
+.button6 {background-color: gray;} /* gray */
+
+button:hover {background-color: #E0E0E0;}
+
+</style>
+</head>
+<body bgcolor = #d3d3d3>
+<br />
+<br />
+<br />
+<br />
+<br />
+<center>
+<table>
+	<form th:object="${newP}" th:action="@{/update/{id}(id=${newP.id})}" method='POST'>
+	<tr>
+		<td><b>Make:</b></td> 
+		<td><input name="make" size="20" th:field="*{make}"></td>
+	</tr>
+	<tr>
+		<td><b>Model:</b></td>
+		<td><input name="model" size="20" th:field="*{model}"></td>
+	</tr>
+	<tr>
+		<td colspan="4" align="center"><button type="submit" class="button button4">Add Phone</button></td>
+	</tr>
+	</form>
+</table>
+   <br />
+   <br />
+   <br />
+	<a href="viewPhonesFromList" align = "center"><button type="button" class="button button4">View CellPhones List</button></a>
+</center>
+</body>
+</html>
